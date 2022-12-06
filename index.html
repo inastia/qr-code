@@ -1,0 +1,103 @@
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Google fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+   <!-- style -->
+   <link rel="stylesheet" href="css/style.css">
+   <!-- Tailwind CDN -->
+   <script src="https://cdn.tailwindcss.com"></script>
+   <!-- Tailwind Config -->
+   <script>
+      tailwind.config = {
+         theme: {
+            extend: {
+               fontFamily: {
+                  'body': ['Montserrat', 'sans-serif'],
+               }
+            }
+         }
+      }
+   </script>
+   <!-- QR CODE CDN -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+   <title>QR Code Generator</title>
+</head>
+
+<body>
+   <header class="bg-cyan-900 p-5 mb-10">
+      <div class="max-w-5xl m-auto">
+         <div class="text-xl font-bold text-white">
+            QR Code Generator
+         </div>
+      </div>
+   </header>
+
+   <main class="m-10">
+      <div class="flex flex-col-reverse align-center justify-center m-auto md:max-w-4xl md:flex-row">
+         <div class="w-full md:w-1/2 mr-24">
+            <h1 class="text-3xl font-bold mb-5 md:text-4xl">
+               QR Code Generator
+            </h1>
+            <p class="mb-4">
+               QR Codes allow smartphone users to access your website simply and
+               quickly.
+            </p>
+            <p>
+               Enter your URL below to generate a QR Code and download the image.
+            </p>
+
+            <form id="generate-form" class="mt-4">
+               <input id="url" type="url" placeholder="Enter a URL"
+                  class="w-full border-2 border-cyan-900 rounded p-3 text-grey-dark mr-2 focus:outline-none mb-5"
+                  required>
+
+               <select class="w-full border-2 border-cyan-900 rounded p-3 text-grey-dark mr-2 focus:outline-none"
+                  name="size" id="size">
+                  <option value="100">100x100</option>
+                  <option value="200" selected>200x200</option>
+                  <option value="300">300x300</option>
+                  <option value="400">400x400</option>
+                  <option value="500">500x500</option>
+                  <option value="600">600x600</option>
+               </select>
+               <button class="bg-cyan-900 rounded w-full text-white py-3 px-4 mt-5 hover:bg-black" type="submit">
+                  Generate QR Code
+               </button>
+            </form>
+         </div>
+         <div class="w-full md:w-1/2 self-center">
+            <img src="img/qr-code.svg" class="m-auto mb-10 md:w-full" alt="">
+         </div>
+      </div> <!-- flex div ends here -->
+
+      <!-- generated qr code goes here -->
+      <div id="generated" class="max-w-3xl m-auto flex flex-col text-center align-center justify-center mt-20">
+
+         <!-- Spinner -->
+         <div id="spinner" role="status">
+            <svg class="spinner inline mr-2 w-12 h-12" viewBox="0 0 50 50">
+               <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+            </svg>
+            <span class="sr-only">Loading...</span>
+         </div>
+
+         <!-- QR Code Output -->
+         <div id="qrcode" class="m-auto"></div>
+      </div>
+
+   </main>
+
+   <script src="js/script.js"></script>
+</body>
+
+</html>
