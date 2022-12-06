@@ -29,5 +29,5 @@ This project was created using:
 
 ## Project Tip
 
-If you can't find a CDN for the package you want to use, go to cdnjs.com and look it up there. 
+If you can't find a CDN for the package you want to use, go to https://cdnjs.com/ and look it up there. 
 That's how I found 'qrcodejs' CDN that I used for this project. 
